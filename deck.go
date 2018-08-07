@@ -9,10 +9,10 @@ import (
 
 type deck []string
 
-func (d deck) newDeck() deck {
+func newDeck() deck {
 	cards := deck{}
 	suits := []string{"Clubs", "Diamonds", "Hearts", "Spades"}
-	values := []string{"Ace", "King", "Queen", "Jack", "10", "9", "8", "7", "6", "5", "4", "3", "2", "1"}
+	values := []string{"Ace", "King", "Queen", "Jack", "10", "9", "8", "7", "6", "5", "4", "3", "2"}
 
 	for _, suit := range suits {
 		for _, value := range values {
@@ -27,4 +27,8 @@ func (d deck) print() {
 	for i, card := range d {
 		fmt.Println(i, card)
 	}
+}
+
+func deal(d deck, handSize int) (deck, deck) {
+	return d[:handSize], d[handSize:]
 }

@@ -5,15 +5,27 @@ import (
 )
 
 func main() {
-	// cards := deck{"Ace of Diamonds", newCard()}
-	// cards = append(cards, "Six of Spades")
+	cards := newDeck()
 
-	// cards.print()
-	myDeck := deck{}
+	hand := deck{}
+	remainingDeck := cards
+	cardCount := len(cards)
+	handCount := 0
+	handSize := 5
 
-	fmt.Println(myDeck.newDeck())
+	for cardCount > 0 {
+		if cardCount < handSize {
+			handSize = cardCount
+		}
+
+		hand, remainingDeck = deal(remainingDeck, handSize)
+
+		cardCount = len(remainingDeck)
+		handCount++
+
+		message := fmt.Sprintf("Hand %d", handCount)
+		fmt.Println(message)
+		hand.print()
+	}
+
 }
-
-// func newCard() string {
-// 	return "Five of Diamonds"
-// }
