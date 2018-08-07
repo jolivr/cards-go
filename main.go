@@ -1,12 +1,19 @@
 package main
 
+import (
+	"fmt"
+)
+
 func main() {
-	cards := deck{"Ace of Diamonds", newCard()}
-	cards = append(cards, "Six of Spades")
+	// cards := deck{"Ace of Diamonds", newCard()}
+	// cards = append(cards, "Six of Spades")
 
-	cards.print()
+	// cards.print()
+	myDeck := deck{}
+
+	fmt.Println(myDeck.newDeck())
 }
 
-func newCard() string {
-	return "Five of Diamonds"
-}
+// func newCard() string {
+// 	return "Five of Diamonds"
+// }
